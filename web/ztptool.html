@@ -139,7 +139,7 @@ async function getFolder() {
 var dosya_path = await eel.btn_getxlsxfile()();
 	if (dosya_path) {
 		console.log(dosya_path);
-        document.getElementById("filepath").innerHTML = dosya_path;
+        document.getElementById("filepath").textContent = dosya_path;
 	}
 }
 
@@ -148,7 +148,7 @@ async function getFileADOM() {
 var dosya_path = await eel.btn_getjsonfile()();
 	if (dosya_path) {
 		console.log(dosya_path);
-        document.getElementById("filepath").innerHTML = dosya_path;
+        document.getElementById("filepath").textContent = dosya_path;
 	}
 }
 
@@ -176,10 +176,10 @@ async function savesettings() {
 
 
   if (document.getElementById("savepassword").checked == true) {
-    let savesettingsmsg = await eel.savesettings(document.getElementById('fmgip').value,document.getElementById('fmgusername').value,document.getElementById('fmgadom').value,document.getElementById('filepath').innerHTML,document.getElementById('fmgpassword').value)()
+    let savesettingsmsg = await eel.savesettings(document.getElementById('fmgip').value,document.getElementById('fmgusername').value,document.getElementById('fmgadom').value,document.getElementById('filepath').textContent,document.getElementById('fmgpassword').value)()
     bsalert(savesettingsmsg[0], savesettingsmsg[1])
   } else {
-    let savesettingsmsg = await eel.savesettings(document.getElementById('fmgip').value,document.getElementById('fmgusername').value,document.getElementById('fmgadom').value,document.getElementById('filepath').innerHTML,"")()
+    let savesettingsmsg = await eel.savesettings(document.getElementById('fmgip').value,document.getElementById('fmgusername').value,document.getElementById('fmgadom').value,document.getElementById('filepath').textContent,"")()
     bsalert(savesettingsmsg[0], savesettingsmsg[1])
   }
 
@@ -198,7 +198,7 @@ function pageupdate(msg) {
 
 eel.expose(saveupdate);
 function saveupdate(msg) {
-  document.getElementById("filepath").innerHTML = msg;
+  document.getElementById("filepath").textContent = msg;
 }
 
 $( document ).ready(function() {
@@ -208,3 +208,4 @@ $( document ).ready(function() {
 </script>
 
 </html>
+
